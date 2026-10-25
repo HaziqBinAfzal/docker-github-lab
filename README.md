@@ -2,6 +2,8 @@
 
 A small Flask application for learning container builds, port mapping, health checks and GitHub Actions. This repository began as a README-only scaffold; the first runnable exercise is now included.
 
+[![Docker lab CI](https://github.com/HaziqBinAfzal/docker-github-lab/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/HaziqBinAfzal/docker-github-lab/actions/workflows/ci.yml)
+
 ## What the app does
 
 | Route | Expected response |
@@ -98,7 +100,7 @@ This is a local learning service. Authentication, TLS, production deployment and
 
 The workflow in `.github/workflows/ci.yml` runs on pushes to `main`, pull requests and manual dispatch. It checks the Python HTTP contract, validates Compose, builds the image, waits for container health, checks both live endpoints, verifies UID 10001, prints logs and cleans up. It does not publish an image or deploy the app.
 
-**Validation:** four Python tests and both live Gunicorn endpoint checks passed in the authoring environment on 25 October 2026. Docker was unavailable there. Use the linked Actions run to verify container build and runtime results; the presence of a workflow alone does not establish that it passed.
+**Validation:** four Python tests and both live Gunicorn endpoint checks passed in the authoring environment on 25 October 2026. The [first GitHub Actions run](https://github.com/HaziqBinAfzal/docker-github-lab/actions/runs/40185806722) also passed the image build, Compose health check, live HTTP checks and UID 10001 check. This verifies the synthetic lab on a hosted Linux runner, not on every learner's computer.
 
 ## Practice the Git workflow
 
